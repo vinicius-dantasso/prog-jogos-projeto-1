@@ -1,5 +1,6 @@
 
 #include "FontDemo.h"
+#include "DebugLevel.h"
 #include "Player.h"
 
 Player::Player()
@@ -21,6 +22,12 @@ void Player::OnCollision(Object* obj)
 {
 	if (obj->Type() == FLOOR)
 		FloorCollision(obj);
+
+	if (obj->Type() == UPGRADE)
+	{
+		DoubleJump = true;
+		DebugLevel::scene->Delete(obj, MOVING);
+	}
 }
 
 void Player::FloorCollision(Object* obj)

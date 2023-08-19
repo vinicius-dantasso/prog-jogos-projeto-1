@@ -5,7 +5,8 @@
 enum JumperObjects
 {
     PLAYER,
-    FLOOR
+    FLOOR,
+    UPGRADE
 };
 
 #endif // !_FONTDEMO_H_

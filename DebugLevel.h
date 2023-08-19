@@ -10,10 +10,11 @@ class DebugLevel : public Game
 {
 private:
 	Sprite* background = nullptr;
-	Scene* scene = nullptr;
 	bool viewBBox = false;
 
 public:
+	static Scene* scene;
+
 	void Init();
 	void Finalize();
 	void Update();

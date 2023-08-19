@@ -4,9 +4,13 @@
 #include "DebugLevel.h"
 #include "Player.h"
 #include "Floor.h"
+#include "Upgrade.h"
+
+Scene* DebugLevel::scene = nullptr;
 
 void DebugLevel::Init()
 {
+	// Criar cena de jogo
 	scene = new Scene();
 
 	// Adicionar Player na cena
@@ -25,6 +29,10 @@ void DebugLevel::Init()
 		scene->Add(floor, STATIC);
 	}
 
+	// Adicionar Upgrade na cena
+	Upgrade* upgrade = new Upgrade();
+	scene->Add(upgrade, MOVING);
+
 }
 
 void DebugLevel::Finalize()
@@ -34,9 +42,6 @@ void DebugLevel::Finalize()
 
 void DebugLevel::Update()
 {
-	if (window->KeyPress('B'))
-		viewBBox != viewBBox;
-
 	scene->Update();
 	scene->CollisionDetection();
 }
@@ -44,7 +49,5 @@ void DebugLevel::Update()
 void DebugLevel::Draw()
 {
 	scene->Draw();
-
-	if (viewBBox)
-		scene->DrawBBox();
+	//scene->DrawBBox();
 }
