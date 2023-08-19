@@ -8,15 +8,16 @@
 #include "Player.h"
 
 enum EnemyTypes{WALKER, FLYING, JUMPER};
-enum States{IDLE, WALK, ATACKING};
+enum States{IDLE, WALK, ATACKING, FLY};
 
 class Enemy : public Object {
 private:
-	Sprite* sprite = nullptr;		//Sprite do Inimigo
-	Sprite* shooting = nullptr;		//Sprite para disparo do inimigo (para inimigos que necessitam)
-	TileSet* tiles = nullptr;		//Tileset
+	TileSet* sprite = nullptr;		//Folha do Inimigo
+	TileSet* shooting = nullptr;	//Folha para disparo do inimigo (para inimigos que necessitam)
 	Animation* anim = nullptr;		//Animação
 	Player* player = nullptr;		//Ponteiro para o objeto player
+
+	float speed;					//Velocidade do Inimigo
 
 public:
 
