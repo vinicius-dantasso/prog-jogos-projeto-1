@@ -7,7 +7,7 @@ Enemy::Enemy(uint Type) {
 	case WALKER: 
 		break;
 	case FLYING: 
-		sprite = new TileSet("Resources/Crow.png");
+		sprite = new TileSet("Resources/Crow.png",4,4);
 		anim = new Animation(sprite, 0.060f, true);
 
 		anim->Add(FLY, fly, 5);
