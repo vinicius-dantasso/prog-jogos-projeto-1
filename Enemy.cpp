@@ -2,15 +2,15 @@
 
 //enum EnemyTypes{WALKER, FLYING, JUMPER};
 Enemy::Enemy(uint Type) {
+	uint fly[5] = { 10,9,16,15,14 };
 	switch (Type) {
 	case WALKER: 
 		break;
 	case FLYING: 
 		sprite = new TileSet("Resources/Crow.png");
 		anim = new Animation(sprite, 0.060f, true);
-		uint fly[6] = {11,12,13,14,15,16};
 
-		anim->Add(FLY, fly, 6);
+		anim->Add(FLY, fly, 5);
 		state = FLY;
 		speed = 200;
 
@@ -29,9 +29,9 @@ Enemy::~Enemy() {
 }
 
 void Enemy::Update() {
-	Translate(-speed * gametime, 0);
+	Translate(-speed * gameTime, 0);
 
-	// atualiza animação
+	// atualiza animaï¿½ï¿½o
 	anim->Select(state);
 	anim->NextFrame();
 }

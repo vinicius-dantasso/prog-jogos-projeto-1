@@ -5,6 +5,7 @@
 #include "Player.h"
 #include "Floor.h"
 #include "Upgrade.h"
+#include "Enemy.h"
 
 Scene* DebugLevel::scene = nullptr;
 
@@ -16,6 +17,10 @@ void DebugLevel::Init()
 	// Adicionar Player na cena
 	Player* player = new Player();
 	scene->Add(player, MOVING);
+
+	// Adicionar Inimigo na Cena
+	Enemy* enemy = new Enemy(FLYING);
+	scene->Add(enemy, MOVING);
 
 	// Adicionar Wall na cena
 	Floor* floor;

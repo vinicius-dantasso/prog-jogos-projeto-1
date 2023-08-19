@@ -10,7 +10,8 @@
 enum EnemyTypes{WALKER, FLYING, JUMPER};
 enum States{IDLE, WALK, ATACKING, FLY};
 
-class Enemy : public Object {
+class Enemy : public Object 
+{
 private:
 	TileSet* sprite = nullptr;		//Folha do Inimigo
 	TileSet* shooting = nullptr;	//Folha para disparo do inimigo (para inimigos que necessitam)
@@ -23,7 +24,7 @@ public:
 
 	uint state; //Estado do Inimigo
 
-	Enemy();
+	Enemy(uint state);
 	~Enemy();
 
 	void Update();
