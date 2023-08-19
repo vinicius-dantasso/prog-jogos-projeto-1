@@ -5,17 +5,21 @@
 
 Player::Player()
 {
-	sprite = new Sprite("Resources/Player.png");
-	grav = 20.0f;
+	tiles = new TileSet("Resources/Player_Run.png", 32, 32, 3, 3);
+	anim = new Animation(tiles, 0.12f, true);
 
 	BBox(new Rect(-16, -16, 16, 16));
 	MoveTo(48.0f, 672.0f);
+
+	grav = 20.0f;
 	type = PLAYER;
+	state = RUNNING;
 }
 
 Player::~Player()
 {
-	delete sprite;
+	delete anim;
+	delete tiles;
 }
 
 void Player::OnCollision(Object* obj)
@@ -83,17 +87,21 @@ void Player::Update()
 	}
 
 	// Manter Player dentro da janela
-	if (x - sprite->Width() / 2.0f < 0)
-		MoveTo(sprite->Width() / 2.0f, y);
-	else if (x + sprite->Width() / 2.0f > window->Width())
-		MoveTo(window->Width() - sprite->Width() / 2.0f, y);
-
+	/*
+	if (x - tiles->Width() / 2.0f < 0)
+		MoveTo(tiles->Width() / 2.0f, y);
+	else if (x + tiles->Width() / 2.0f > tiles->Width())
+		MoveTo(window->Width() - tiles->Width() / 2.0f, y);
+	*/
 	// Movimento
 	hSpd = spd;
 	Translate(hSpd * gameTime, vSpd * gameTime);
+
+	// Atualiza animação do Player;
+	anim->NextFrame();
 }
 
 void Player::Draw()
 {
-	sprite->Draw(x, y, Layer::UPPER);
+	anim->Draw(x, y, z);
 }

@@ -4,12 +4,17 @@
 
 #include "Types.h"
 #include "Sprite.h"
+#include "Animation.h"
 #include "Object.h"
+
+enum PlayerState {RUNNING, JUMPING};
 
 class Player : public Object
 {
 private:
 	Sprite* sprite = nullptr;		// Sprite do Player
+	TileSet* tiles = nullptr;
+	Animation* anim = nullptr;
 
 	// Movimentação e Pulo
 	float spd = 0;					// Velocidade Geral
@@ -26,6 +31,8 @@ private:
 	int maxJumps = 2;				// Quantidade máxima de pulos
 
 public:
+	uint state;
+
 	Player();
 	~Player();
 
