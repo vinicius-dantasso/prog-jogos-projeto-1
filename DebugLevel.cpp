@@ -1,8 +1,6 @@
 
-
 #include "Engine.h"
 #include "DebugLevel.h"
-#include "Player.h"
 #include "Floor.h"
 #include "Upgrade.h"
 
@@ -14,15 +12,19 @@ void DebugLevel::Init()
 	scene = new Scene();
 
 	// Adicionar Player na cena
-	Player* player = new Player();
+	player = new Player();
 	scene->Add(player, MOVING);
+
+	// Adiciona uma fonte
+	font = new Font("Resources/verdana12.png");
+	font->Spacing("Resources/verdana12.dat");
 
 	// Adicionar Wall na cena
 	Floor* floor;
 	float offSetX = 16.0f;
 	float offSetY = 16.0f;
 
-	for (int i = 1; i <= 80; i += 2)
+	for (int i = 1; i <= 40; i += 2)
 	{
 		floor = new Floor();
 		floor->MoveTo(offSetX * i, window->Height() - offSetY);

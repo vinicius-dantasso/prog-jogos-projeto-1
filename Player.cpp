@@ -5,11 +5,17 @@
 
 Player::Player()
 {
-	tiles = new TileSet("Resources/Player_Run.png", 32, 32, 3, 3);
+	tiles = new TileSet("Resources/Player.png", 33, 32, 5, 8);
 	anim = new Animation(tiles, 0.12f, true);
 
+	uint SeqRun[5] = { 4,3,2,1,0 };
+	uint SeqJump[3] = { 9,8,7 };
+
+	anim->Add(RUNNING, SeqRun, 5);
+	anim->Add(JUMPING, SeqJump, 3);
+
 	BBox(new Rect(-16, -16, 16, 16));
-	MoveTo(48.0f, 672.0f);
+	MoveTo(48.0f, 432.0f);
 
 	grav = 20.0f;
 	type = PLAYER;
@@ -39,6 +45,7 @@ void Player::FloorCollision(Object* obj)
 	vSpd = 0;
 	currentJumps = 0;
 	MoveTo(x, obj->Y() - 32);
+	state = RUNNING;
 	OnGround = true;
 }
 
@@ -56,6 +63,7 @@ void Player::Update()
 		vSpd -= 620.0f;
 		currentJumps++;
 		OnGround = false;
+		state = JUMPING;
 		_jump = 0;
 	}
 
@@ -87,17 +95,17 @@ void Player::Update()
 	}
 
 	// Manter Player dentro da janela
-	/*
-	if (x - tiles->Width() / 2.0f < 0)
-		MoveTo(tiles->Width() / 2.0f, y);
-	else if (x + tiles->Width() / 2.0f > tiles->Width())
-		MoveTo(window->Width() - tiles->Width() / 2.0f, y);
-	*/
+	if (x - tiles->Width() / 6.0f < 0)
+		MoveTo(tiles->Width() / 6.0f, y);
+	else if (x + tiles->Width() / 6.0f > window->Width())
+		MoveTo(window->Width() - tiles->Width() / 6.0f, y);
+
 	// Movimento
 	hSpd = spd;
 	Translate(hSpd * gameTime, vSpd * gameTime);
 
 	// Atualiza animação do Player;
+	anim->Select(state);
 	anim->NextFrame();
 }
 
