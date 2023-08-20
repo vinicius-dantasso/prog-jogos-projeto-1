@@ -15,7 +15,7 @@ Player::Player()
 	anim->Add(JUMPING, SeqJump, 1);
 
 	BBox(new Rect(-16, -16, 16, 16));
-	MoveTo(48.0f, 432.0f);
+	MoveTo(48.0f, window->Height() - 100.0f);
 
 	grav = 20.0f;
 	type = PLAYER;
