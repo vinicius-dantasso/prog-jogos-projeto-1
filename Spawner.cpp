@@ -32,10 +32,12 @@ void Spawner::Update()
 
 		uint spawn = mt() % 100;
 
-		if(spawn < 51)
-			DebugLevel::scene->Add(new Enemy(FLYING), STATIC);
-		else if(spawn > 50)
-			DebugLevel::scene->Add(new Upgrade(), STATIC);
+		if(spawn < 71)
+			DebugLevel::scene->Add(new Enemy(FLYING), MOVING);
+		/*else if (spawn > 30 && spawn < 71)
+			DebugLevel::scene->Add(new Player(), MOVING);*/
+		else if(spawn > 70)
+			DebugLevel::scene->Add(new Upgrade(), MOVING);
 	}
 }
 
