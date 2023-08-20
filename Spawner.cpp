@@ -4,7 +4,7 @@
 #include "DebugLevel.h"
 #include <random>
 
-#define timeRate 1
+#define timeRate 2
 
 //gerador de números aleatóris. Usado para delimitação de intervalo entre os spawns e a escolha do próximo objeto a ser instanciado
 std::random_device rd;
@@ -32,12 +32,12 @@ void Spawner::Update()
 
 		uint spawn = mt() % 100;
 
-		if(spawn < 71)
+		if(spawn < 33)
 			DebugLevel::scene->Add(new Enemy(FLYING), MOVING);
-		/*else if (spawn > 30 && spawn < 71)
-			DebugLevel::scene->Add(new Player(), MOVING);*/
-		else if(spawn > 70)
-			DebugLevel::scene->Add(new Upgrade(), MOVING);
+		else if (spawn > 32 && spawn < 67)
+			DebugLevel::scene->Add(new Enemy(WALKER), MOVING);
+		else if(spawn > 66)
+			DebugLevel::scene->Add(new Enemy(JUMPER), MOVING);
 	}
 }
 

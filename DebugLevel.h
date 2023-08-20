@@ -3,17 +3,18 @@
 #define _DEBUG_LEVEL_H_
 
 #include "Game.h"
-#include "Sprite.h"
 #include "Scene.h"
-#include "Font.h"
-#include "Player.h"
+#include "Background.h"
+#include "Timer.h"
+
 
 class DebugLevel : public Game
 {
 private:
-	Sprite* background = nullptr;
-	Player* player = nullptr;
-	Font* font = nullptr;
+	Background* background = nullptr;
+	
+	Timer timer;
+
 	bool viewBBox = false;
 
 public:
