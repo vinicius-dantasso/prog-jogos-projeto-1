@@ -1,11 +1,11 @@
 /**********************************************************************************
 // FontDemo
 // 
-// Criação:     07 Out 2011
-// Atualização: 16 Ago 2023
+// CriaÃ§Ã£o:     07 Out 2011
+// AtualizaÃ§Ã£o: 16 Ago 2023
 // Compilador:  Visual C++ 2022
 //
-// Descrição:   Testa a classe Font com exibição de texto com diversas fontes.
+// DescriÃ§Ã£o:   Testa a classe Font com exibiÃ§Ã£o de texto com diversas fontes.
 //
 **********************************************************************************/
 
@@ -29,7 +29,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 
     // configura motor
     engine->window->Mode(WINDOWED);
-    engine->window->Size(1280, 720);
+    engine->window->Size(640, 480);
     engine->window->Color(0, 0, 0);
     engine->window->Title("Projeto - 1");
     engine->window->Icon(IDI_ICON);
@@ -44,4 +44,3 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
 }
 
 // ----------------------------------------------------------------------------
-
