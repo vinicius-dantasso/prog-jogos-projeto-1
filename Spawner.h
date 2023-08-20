@@ -3,18 +3,20 @@
 
 #include "Scene.h"
 #include "Object.h"
+#include "Timer.h"
 
 class Spawner : public Object
 {
 
 private:
-	Scene * scene = nullptr;
-	Object * object;
-	float timer;
+	float timerF;				//Contagem
 
+	Timer timer;
+
+	uint spawnRate;				//Frequência em que os objetos são instânciados
 	
 public:
-	Spawner(Scene *, Object *);
+	Spawner();
 	~Spawner();
 
 	void Update();
