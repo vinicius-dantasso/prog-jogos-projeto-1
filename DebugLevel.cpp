@@ -3,6 +3,7 @@
 #include "DebugLevel.h"
 #include "Floor.h"
 #include "Upgrade.h"
+#include "Enemy.h"
 
 Scene* DebugLevel::scene = nullptr;
 
@@ -24,7 +25,7 @@ void DebugLevel::Init()
 	float offSetX = 16.0f;
 	float offSetY = 16.0f;
 
-	for (int i = 1; i <= 40; i += 2)
+	for (int i = 1; i <= 46; i += 2)
 	{
 		floor = new Floor();
 		floor->MoveTo(offSetX * i, window->Height() - offSetY);
@@ -34,6 +35,17 @@ void DebugLevel::Init()
 	// Adicionar Upgrade na cena
 	Upgrade* upgrade = new Upgrade();
 	scene->Add(upgrade, MOVING);
+
+	// Adicionar Inimigo Voador
+	Enemy* enemy;
+	enemy = new Enemy(FLYING);
+	scene->Add(enemy, MOVING);
+
+	enemy = new Enemy(WALKER);
+	scene->Add(enemy, MOVING);
+
+	enemy = new Enemy(JUMPER);
+	scene->Add(enemy, MOVING);
 
 }
 

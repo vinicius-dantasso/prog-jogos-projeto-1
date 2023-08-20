@@ -9,10 +9,10 @@ Player::Player()
 	anim = new Animation(tiles, 0.12f, true);
 
 	uint SeqRun[5] = { 4,3,2,1,0 };
-	uint SeqJump[3] = { 9,8,7 };
+	uint SeqJump[1] = { 7 };
 
 	anim->Add(RUNNING, SeqRun, 5);
-	anim->Add(JUMPING, SeqJump, 3);
+	anim->Add(JUMPING, SeqJump, 1);
 
 	BBox(new Rect(-16, -16, 16, 16));
 	MoveTo(48.0f, 432.0f);
@@ -38,6 +38,9 @@ void Player::OnCollision(Object* obj)
 		DoubleJump = true;
 		DebugLevel::scene->Delete(obj, MOVING);
 	}
+
+	if (obj->Type() == ENEMY)
+		DebugLevel::scene->Delete(this, MOVING);
 }
 
 void Player::FloorCollision(Object* obj)
@@ -73,7 +76,7 @@ void Player::Update()
 		if (_jump)
 		{
 			vSpd = 0;
-			vSpd -= 550.0f;
+			vSpd -= 450.0f;
 			currentJumps++;
 		}
 	}
