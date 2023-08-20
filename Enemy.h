@@ -19,10 +19,19 @@ private:
 	Player* player = nullptr;		//Ponteiro para o objeto player
 
 	float speed;					//Velocidade do Inimigo
+	float vSpd;						//Velocidade Vertical
+	float grav = 20.0f;				//Gravidade
+	float frequency = 0.03;			//Frequência de Onda Senoide
+	int amplitude = 150;			//Amplitude de Onda
+	int time = 0;					//Intervalo de Tempo da Onda
+	int timer = 0;					//Timer para o inimigo pular
+	int maxTimer = 60*2;			//Tempo máximo do timer
+	bool onGround = false;			//Verificação se está no chão
 
 public:
 
-	uint state; //Estado do Inimigo
+	uint state;						//Estado do Inimigo
+	uint enemyType;					//Tipo do Inimigo
 
 	Enemy(uint state);
 	~Enemy();

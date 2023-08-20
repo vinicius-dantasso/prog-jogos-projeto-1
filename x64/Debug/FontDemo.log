@@ -1,2 +1,8 @@
-﻿  DebugLevel.cpp
+﻿  Enemy.cpp
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.h(24,20): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.cpp(25,49): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.cpp(25,26): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.cpp(36,26): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.cpp(48,49): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.cpp(48,26): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
   FontDemo.vcxproj -> C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\x64\Debug\FontDemo.exe
