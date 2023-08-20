@@ -57,7 +57,7 @@ void Player::Update()
 	// Efeito da gravidade sobre o Player
 	vSpd += grav;
 
-	// Pulo caso esteja tocando o chão
+	// Pulo caso esteja tocando o chÃ£o
 	if (_jump && OnGround)
 	{
 		vSpd -= 620.0f;
@@ -78,7 +78,7 @@ void Player::Update()
 		}
 	}
 
-	// Movimentação Horizontal
+	// MovimentaÃ§Ã£o Horizontal
 	switch (_hDir)
 	{
 	case -1:
@@ -104,7 +104,7 @@ void Player::Update()
 	hSpd = spd;
 	Translate(hSpd * gameTime, vSpd * gameTime);
 
-	// Atualiza animação do Player;
+	// Atualiza animaÃ§Ã£o do Player;
 	anim->Select(state);
 	anim->NextFrame();
 }
