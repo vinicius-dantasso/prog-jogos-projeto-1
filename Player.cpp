@@ -1,6 +1,7 @@
 
 #include "FontDemo.h"
 #include "DebugLevel.h"
+#include "Level.h"
 #include "Player.h"
 
 Player::Player()
@@ -40,7 +41,7 @@ void Player::OnCollision(Object* obj)
 	}
 
 	if (obj->Type() == ENEMY)
-		DebugLevel::scene->Delete(this, MOVING);
+		Level::scene->Delete(this, MOVING);
 }
 
 void Player::FloorCollision(Object* obj)

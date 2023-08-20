@@ -15,6 +15,7 @@
 #include "Sprite.h"
 #include "Resources.h"
 #include "DebugLevel.h"
+#include "Level.h"
 
 // ------------------------------------------------------------------------------
 
@@ -37,7 +38,7 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     engine->graphics->VSync(true);
 
     // inicia o jogo
-    int status = engine->Start(new DebugLevel());
+    int status = engine->Start(new Level());
 
     delete engine;
     return status;
