@@ -27,7 +27,7 @@ Background::~Background()
 
 void Background::Update() 
 {
-		xB -= 0.5f * speed * gameTime;
+		xB -= 0.25f * speed * gameTime;
 		xF -= speed * gameTime;
 
 		if(xB + imgB->Width() < 0)
@@ -40,7 +40,7 @@ void Background::Draw()
 {
 	bgB1->Draw(xB + imgB->Width() /2, imgB->Height() / 2, Layer::BACK);
 	bgB2->Draw((xB + imgB->Width() * 1.5f), imgB->Height() / 2, Layer::BACK);
-	bgF1->Draw(xF + imgF->Width() / 2, imgB->Height() * 0.8f, Layer::LOWER);
-	bgF2->Draw(xF + imgF->Width() * 1.5f, imgB->Height() * 0.8f, Layer::LOWER);
+	bgF1->Draw(xF + imgF->Width() / 2, imgB->Height() * 0.825f, Layer::LOWER);
+	bgF2->Draw(xF + imgF->Width() * 1.5f, imgB->Height() * 0.825f, Layer::LOWER);
 
 }
