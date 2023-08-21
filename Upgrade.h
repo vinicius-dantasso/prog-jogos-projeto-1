@@ -11,6 +11,10 @@ class Upgrade : public Object
 private:
 	Sprite* sprite = nullptr;
 	int spd = 0;
+	float vSpd = 0;
+	float frequency = 0.03;			//Frequência de Onda Senoide
+	int amplitude = 30;				//Amplitude de Onda
+	int time = 0;					//Duração da Onda
 
 public:
 	Upgrade();

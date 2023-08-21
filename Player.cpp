@@ -37,7 +37,7 @@ void Player::OnCollision(Object* obj)
 	if (obj->Type() == UPGRADE)
 	{
 		DoubleJump = true;
-		DebugLevel::scene->Delete(obj, MOVING);
+		Level::scene->Delete(obj, MOVING);
 	}
 
 	if (obj->Type() == ENEMY)

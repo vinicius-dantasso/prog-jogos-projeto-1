@@ -14,6 +14,8 @@ private:
 	Timer timer;
 
 	uint spawnRate;				//Frequência em que os objetos são instânciados
+
+	int createUpgrade = 0;
 	
 public:
 	Spawner();

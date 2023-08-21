@@ -1,6 +1,7 @@
 
 #include "FontDemo.h";
 #include "Upgrade.h"
+#include <cmath>
 
 Upgrade::Upgrade()
 {
@@ -9,7 +10,7 @@ Upgrade::Upgrade()
 	type = UPGRADE;
 
 	BBox(new Rect(-8, -8, 8, 8));
-	MoveTo(window->Width(), window->Height() - 48.0f);
+	MoveTo(window->Width(), window->Height() - 96.0f);
 }
 
 Upgrade::~Upgrade()
@@ -24,10 +25,13 @@ void Upgrade::OnCollision(Object* obj)
 
 void Upgrade::Update()
 {
-	Translate(spd * gameTime, 0.0f);
+	vSpd = sin(time * frequency) * amplitude;
+	time++;
+
+	Translate(spd * gameTime, vSpd * gameTime);
 }
 
 void Upgrade::Draw()
 {
-	sprite->Draw(x, y, z);
+	sprite->Draw(x, y, Layer::FRONT);
 }

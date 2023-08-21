@@ -14,7 +14,7 @@
 #include "Font.h"
 #include "Sprite.h"
 #include "Resources.h"
-#include "DebugLevel.h"
+#include "TitleScreen.h"
 #include "Level.h"
 
 // ------------------------------------------------------------------------------
@@ -32,13 +32,13 @@ int APIENTRY WinMain(_In_ HINSTANCE hInstance, _In_opt_ HINSTANCE hPrevInstance,
     engine->window->Mode(WINDOWED);
     engine->window->Size(640, 480);
     engine->window->Color(255,255,255);
-    engine->window->Title("Projeto - 1");
+    engine->window->Title("Filó - The Great Escapade");
     engine->window->Icon(IDI_ICON);
     //engine->window->Cursor(IDC_CURSOR);
     engine->graphics->VSync(true);
 
     // inicia o jogo
-    int status = engine->Start(new Level());
+    int status = engine->Start(new TitleScreen());
 
     delete engine;
     return status;

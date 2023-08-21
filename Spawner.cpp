@@ -2,11 +2,12 @@
 #include "Enemy.h"
 #include "Upgrade.h"
 #include "DebugLevel.h"
+#include "Level.h"
 #include <random>
 
 #define timeRate 2
 
-//gerador de números aleatóris. Usado para delimitação de intervalo entre os spawns e a escolha do próximo objeto a ser instanciado
+//gerador de números aleatórios. Usado para delimitação de intervalo entre os spawns e a escolha do próximo objeto a ser instanciado
 std::random_device rd;
 std::mt19937 mt(rd());
 
@@ -32,12 +33,29 @@ void Spawner::Update()
 
 		uint spawn = mt() % 100;
 
-		if(spawn < 33)
-			DebugLevel::scene->Add(new Enemy(FLYING), MOVING);
-		else if (spawn > 32 && spawn < 67)
-			DebugLevel::scene->Add(new Enemy(WALKER), MOVING);
-		else if(spawn > 66)
-			DebugLevel::scene->Add(new Enemy(JUMPER), MOVING);
+		if (Level::dist <= 50 || Level::dist > 50)
+		{
+			if (spawn < 33)
+				Level::scene->Add(new Enemy(WALKER), MOVING);
+
+			if (Level::dist >= 50)
+			{
+				createUpgrade++;
+
+				if (spawn > 32 && spawn < 67)
+					Level::scene->Add(new Enemy(FLYING), MOVING);
+
+				if (Level::dist >= 100)
+				{
+					if (spawn > 66)
+						Level::scene->Add(new Enemy(JUMPER), MOVING);
+				}
+			}
+		}
+
+		if (createUpgrade == 1)
+			Level::scene->Add(new Upgrade(), MOVING);
+
 	}
 }
 

@@ -27,18 +27,16 @@ void DebugLevel::Init()
 	float offSetX = 16.0f;
 	float offSetY = 16.0f;
 
-	/*
 	for (int i = 1; i <= 80; i += 2)
 	{
 		floor = new Floor();
 		floor->MoveTo(offSetX * i, window->Height() - offSetY);
 		scene->Add(floor, STATIC);
 	}
-	*/
 
 	//spawner de inimigos
-	Spawner* spw = new Spawner();
-	scene->Add(spw, STATIC);
+	//Spawner* spw = new Spawner();
+	//scene->Add(spw, STATIC);
 
 	
 }

@@ -1,6 +1,7 @@
 #include "FontDemo.h"
 #include "Enemy.h"
 #include "DebugLevel.h"
+#include "Level.h"
 #include <cmath>
 
 //enum EnemyTypes{WALKER, FLYING, JUMPER};
@@ -22,7 +23,7 @@ Enemy::Enemy(uint Type) {
 		speed = -150;
 
 		BBox(new Rect(-16, -16, 16, 16));
-		MoveTo(window->Width() + 48, window->Height() - 48);
+		MoveTo(window->Width() + 48, window->Height() - 64);
 		break;
 	case FLYING: 
 		sprite = new TileSet("Resources/Crow_Enemy.png", 48, 32, 4, 4);
@@ -33,7 +34,7 @@ Enemy::Enemy(uint Type) {
 		speed = -150;
 
 		BBox(new Rect(-16, -16, 16, 16));
-		MoveTo(window->Width() + 48, window->CenterY() - 50);
+		MoveTo(window->Width() + 48, window->CenterY() - 20);
 		break;
 	case JUMPER:
 		sprite = new TileSet("Resources/Frog.png", 16, 32, 2, 2);
@@ -86,7 +87,7 @@ void Enemy::Update() {
 
 	// Deletar Inimigo caso saia da janela
 	if (x < 0)
-		DebugLevel::scene->Delete(this, MOVING);
+		Level::scene->Delete(this, MOVING);
 
 	// atualiza anima��o
 	if (this->enemyType != JUMPER)
