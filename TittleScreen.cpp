@@ -14,7 +14,6 @@ void TitleScreen::Finalize()
 {
 	delete sprite;
 	delete font;
-	PlaySound(0, 0, 0);
 }
 
 void TitleScreen::Update()
@@ -23,7 +22,7 @@ void TitleScreen::Update()
 		window->Close();
 
 	if (window->KeyPress(VK_RETURN))
-		Engine::Next<Level>();
+		Engine::Next<Instructions>();
 
 	if (!canDraw)
 	{

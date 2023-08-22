@@ -45,11 +45,14 @@ void Level::Finalize()
 void Level::Update()
 {
 	timer++;
-	if (timer >= maxTimer && dist <= 300)
+	if (timer >= maxTimer && dist < 300)
 	{
 		timer = 0;
 		dist++;
 	}
+
+	if (window->KeyPress('B'))
+		dist = 300;
 
 	if (Player::isDead)
 	{
@@ -61,6 +64,8 @@ void Level::Update()
 		Boss::isDead = false;
 		Engine::Next<WinScreen>();
 	}
+	else if (window->KeyPress('P'))
+		Engine::Next<WinScreen>();
 	else
 	{
 		scene->Update();

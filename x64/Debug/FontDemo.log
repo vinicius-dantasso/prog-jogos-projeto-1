@@ -1,15 +1,7 @@
-﻿  Background.cpp
-  Level.cpp
-  Spawner.cpp
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.h(24,20): warning C4305: 'inicializando': truncamento de 'double' para 'float' (compilando arquivo de origem Spawner.cpp)
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Upgrade.h(15,20): warning C4305: 'inicializando': truncamento de 'double' para 'float' (compilando arquivo de origem Spawner.cpp)
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.h(24,20): warning C4305: 'inicializando': truncamento de 'double' para 'float' (compilando arquivo de origem Level.cpp)
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Upgrade.h(15,20): warning C4305: 'inicializando': truncamento de 'double' para 'float' (compilando arquivo de origem Level.cpp)
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.h(24,20): warning C4305: 'inicializando': truncamento de 'double' para 'float' (compilando arquivo de origem Background.cpp)
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Upgrade.h(15,20): warning C4305: 'inicializando': truncamento de 'double' para 'float' (compilando arquivo de origem Background.cpp)
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Spawner.cpp(23,20): warning C4244: 'argumento': conversão de 'uint' para 'float', possível perda de dados
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Level.cpp(77,29): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Level.cpp(78,29): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Background.cpp(43,51): warning C4244: 'argumento': conversão de 'uint' para 'float', possível perda de dados
-C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Background.cpp(44,57): warning C4244: 'argumento': conversão de 'uint' para 'float', possível perda de dados
+﻿  Level.cpp
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Enemy.h(24,20): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Upgrade.h(15,20): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\WinScreen.h(25,20): warning C4305: 'inicializando': truncamento de 'double' para 'float'
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Level.cpp(82,29): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
+C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\FontDemo\Level.cpp(83,29): warning C4244: 'argumento': conversão de 'int' para 'float', possível perda de dados
   FontDemo.vcxproj -> C:\Users\vinic\OneDrive\Área de Trabalho\Faculdade\Quinto Periodo\Programação de Jogos\Jogos - Projeto 1\x64\Debug\FontDemo.exe

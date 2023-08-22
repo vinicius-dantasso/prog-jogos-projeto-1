@@ -7,6 +7,7 @@
 #include "Engine.h"
 #include "Level.h"
 #include "Font.h"
+#include "Instructions.h"
 #include <Windows.h>
 #include <mmsystem.h>
 
