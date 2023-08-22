@@ -34,7 +34,7 @@ void Background::Update()
 			xB = 0.0f;
 		if(xF + imgF->Width() < 0)
 			xF = 0.0f;
-		if (Level::dist >= 500)
+		if (Level::dist >= 300)
 			speed = 0.0f;
 }
 

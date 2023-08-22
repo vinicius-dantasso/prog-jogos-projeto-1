@@ -49,7 +49,7 @@ void Spawner::Update()
 			}
 		}
 
-		if (Level::dist >= 500 && spawnBoss < 2)
+		if (Level::dist >= 300 && spawnBoss < 2)
 			spawnBoss++;
 
 		if (createUpgrade == 1)

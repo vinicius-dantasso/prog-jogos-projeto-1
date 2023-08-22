@@ -45,7 +45,7 @@ void Level::Finalize()
 void Level::Update()
 {
 	timer++;
-	if (timer >= maxTimer)
+	if (timer >= maxTimer && dist <= 300)
 	{
 		timer = 0;
 		dist++;

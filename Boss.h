@@ -28,6 +28,7 @@ private:
 	int attackCount = 0;
 	int attackMax = 3;
 	int life = 150;
+	bool damage = false;
 
 	int timer = 0;
 	int maxTimer = 80;

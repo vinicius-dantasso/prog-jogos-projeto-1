@@ -43,9 +43,11 @@ void Boss::OnCollision(Object* obj)
 	if (state == BOSSTIRED && obj->Type() == PLAYER)
 	{
 		life--;
+		damage = true;
 	}
 	else if (state != BOSSTIRED && obj->Type() == PLAYER)
 	{
+		Player::isDead = true;
 		Level::scene->Delete(obj, MOVING);
 	}
 }
@@ -62,6 +64,7 @@ void Boss::Update()
 			state = BOSSATTACK;
 		}
 
+		damage = false;
 		break;
 
 	case BOSSATTACK:
@@ -81,6 +84,8 @@ void Boss::Update()
 				state = BOSSTIRED;
 			}
 		}
+		damage = false;
+
 		break;
 
 	case BOSSWOOF:
@@ -91,6 +96,8 @@ void Boss::Update()
 			playMusic = true;
 			state = BOSSIDLE;
 		}
+		damage = false;
+
 		break;
 
 	case BOSSWALK:
@@ -104,6 +111,8 @@ void Boss::Update()
 				state = BOSSWOOF;
 			}
 		}
+		damage = false;
+
 		break;
 
 	case BOSSTIRED:
@@ -137,5 +146,17 @@ void Boss::Update()
 
 void Boss::Draw()
 {
+	Color white (1.0f, 1.0f, 1.0f, 1.0f);
+	Color black (0.0f, 0.0f, 0.0f, 1.0f);
+	
+	font->Draw(x - 30, y - 40, "IBAMA", white, Layer::FRONT, 0.18f);
+	font->Draw(x - 28, y - 40, "IBAMA", black, Layer::UPPER, 0.18f);
+
+	if (damage)
+	{
+		font->Draw(x - 40, y - 50, "-10", white, Layer::FRONT, 0.2f);
+		font->Draw(x - 38, y - 50, "-10", black, Layer::UPPER, 0.2f);
+	}
+
 	anim->Draw(x, y, z);
 }
