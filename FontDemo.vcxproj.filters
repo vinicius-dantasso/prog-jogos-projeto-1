@@ -78,9 +78,6 @@
     <ClCompile Include="Font.cpp">
       <Filter>Engine\Arquivos de Origem</Filter>
     </ClCompile>
-    <ClCompile Include="DebugLevel.cpp">
-      <Filter>Game\Arquivos de Origem</Filter>
-    </ClCompile>
     <ClCompile Include="Player.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
@@ -103,6 +100,18 @@
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
     <ClCompile Include="TittleScreen.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="Boss.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="BossAttack.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOver.cpp">
+      <Filter>Game\Arquivos de Origem</Filter>
+    </ClCompile>
+    <ClCompile Include="WinScreen.cpp">
       <Filter>Game\Arquivos de Origem</Filter>
     </ClCompile>
   </ItemGroup>
@@ -158,9 +167,6 @@
     <ClInclude Include="Font.h">
       <Filter>Engine\Arquivos de Cabeçalho</Filter>
     </ClInclude>
-    <ClInclude Include="DebugLevel.h">
-      <Filter>Game\Arquivos de Cabeçalho</Filter>
-    </ClInclude>
     <ClInclude Include="FontDemo.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
@@ -186,6 +192,18 @@
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
     <ClInclude Include="TitleScreen.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="Boss.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="BossAttack.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOver.h">
+      <Filter>Game\Arquivos de Cabeçalho</Filter>
+    </ClInclude>
+    <ClInclude Include="WinScreen.h">
       <Filter>Game\Arquivos de Cabeçalho</Filter>
     </ClInclude>
   </ItemGroup>

@@ -10,6 +10,7 @@
 #include "Background.h"
 #include "Floor.h"
 #include "Spawner.h"
+#include "WinScreen.h"
 #include <Windows.h>
 #include <mmsystem.h>
 #include <string>
@@ -17,9 +18,6 @@
 class Level : public Game
 {
 private:
-	Background* background = nullptr;
-	Player* player = nullptr;
-	Spawner* spawn = nullptr;
 	Font* font = nullptr;
 
 public:

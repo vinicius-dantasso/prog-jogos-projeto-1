@@ -1,21 +1,24 @@
 
 #include "FontDemo.h"
-#include "DebugLevel.h"
 #include "Level.h"
 #include "Player.h"
 
+bool Player::isDead = false;
+
 Player::Player()
 {
-	tiles = new TileSet("Resources/Player.png", 33, 32, 5, 8);
+	tiles = new TileSet("Resources/Player_Teste.png", 33, 32, 5, 11);
 	anim = new Animation(tiles, 0.12f, true);
 
 	uint SeqRun[5] = { 4,3,2,1,0 };
-	uint SeqJump[1] = { 7 };
+	uint SeqAttack[5] = { 5,6,7,8,9 };
+	uint SeqJump[1] = { 10 };
 
 	anim->Add(RUNNING, SeqRun, 5);
+	anim->Add(ATTACK, SeqAttack, 5);
 	anim->Add(JUMPING, SeqJump, 1);
 
-	BBox(new Rect(-16, -16, 16, 16));
+	BBox(new Rect(-8, -8, 8, 16));
 	MoveTo(48.0f, window->Height() - 100.0f);
 
 	grav = 20.0f;
@@ -40,8 +43,14 @@ void Player::OnCollision(Object* obj)
 		Level::scene->Delete(obj, MOVING);
 	}
 
-	if (obj->Type() == ENEMY)
+	if (obj->Type() == ENEMY && state != ATTACK)
+	{
+		isDead = true;
 		Level::scene->Delete(this, MOVING);
+	}
+
+	else if (obj->Type() == ENEMY && state == ATTACK)
+		Level::scene->Delete(obj, MOVING);
 }
 
 void Player::FloorCollision(Object* obj)
@@ -49,14 +58,17 @@ void Player::FloorCollision(Object* obj)
 	vSpd = 0;
 	currentJumps = 0;
 	MoveTo(x, obj->Y() - 32);
-	state = RUNNING;
+	if (state != ATTACK)
+		state = RUNNING;
 	OnGround = true;
 }
 
 void Player::Update()
 {
 	int _hDir = -window->KeyDown(VK_LEFT) + window->KeyDown(VK_RIGHT);
-	int _jump = window->KeyPress(VK_SPACE);
+	int _jump = window->KeyPress(VK_UP);
+	int _attack = window->KeyPress(VK_SPACE);
+	bool _levelDist = Level::dist >= 20;
 
 	// Efeito da gravidade sobre o Player
 	vSpd += grav;
@@ -64,7 +76,7 @@ void Player::Update()
 	// Pulo caso esteja tocando o chão
 	if (_jump && OnGround)
 	{
-		vSpd -= 620.0f;
+		vSpd -= 420.0f;
 		currentJumps++;
 		OnGround = false;
 		state = JUMPING;
@@ -98,6 +110,31 @@ void Player::Update()
 		break;
 	}
 
+	// Ataque
+	if (_attack && OnGround)
+		state = ATTACK;
+
+	switch (state)
+	{
+	case ATTACK:
+		BBox(new Rect(-16, -16, 32, 16));
+
+		timer++;
+		if (timer >= maxTimer && OnGround)
+		{
+			timer = 0;
+			state = RUNNING;
+			BBox(new Rect(-8, -8, 8, 16));
+		}
+		else if (timer >= maxTimer && !OnGround)
+		{
+			timer = 0;
+			state = JUMPING;
+			BBox(new Rect(-8, -8, 8, 16));
+		}
+		break;
+	}
+
 	// Manter Player dentro da janela
 	if (x - tiles->Width() / 6.0f < 0)
 		MoveTo(tiles->Width() / 6.0f, y);
@@ -115,5 +152,5 @@ void Player::Update()
 
 void Player::Draw()
 {
-	anim->Draw(x, y, z);
+	anim->Draw(x, y, Layer::FRONT);
 }

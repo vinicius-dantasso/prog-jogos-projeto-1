@@ -47,5 +47,4 @@ public:
 inline void Enemy::Draw() {
 	anim->Draw(x, y, z);
 }
-
 #endif

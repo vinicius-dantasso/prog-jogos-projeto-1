@@ -3,7 +3,7 @@
 
 #include "Object.h"
 #include "Sprite.h"
-
+#include "Level.h"
 
 class Background : public Object
 {

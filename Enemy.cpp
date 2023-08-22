@@ -1,6 +1,5 @@
 #include "FontDemo.h"
 #include "Enemy.h"
-#include "DebugLevel.h"
 #include "Level.h"
 #include <cmath>
 
@@ -34,7 +33,7 @@ Enemy::Enemy(uint Type) {
 		speed = -150;
 
 		BBox(new Rect(-16, -16, 16, 16));
-		MoveTo(window->Width() + 48, window->CenterY() - 20);
+		MoveTo(window->Width() + 48, window->CenterY());
 		break;
 	case JUMPER:
 		sprite = new TileSet("Resources/Frog.png", 16, 32, 2, 2);
@@ -64,7 +63,6 @@ void Enemy::Update() {
 	case FLY:
 		vSpd = sin(time * frequency) * amplitude;
 		time++;
-
 		Translate(speed * gameTime, vSpd * gameTime);
 		break;
 	case WALK:

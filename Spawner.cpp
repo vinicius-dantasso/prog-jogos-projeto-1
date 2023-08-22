@@ -1,9 +1,4 @@
 #include "Spawner.h"
-#include "Enemy.h"
-#include "Upgrade.h"
-#include "DebugLevel.h"
-#include "Level.h"
-#include <random>
 
 #define timeRate 2
 
@@ -29,34 +24,41 @@ void Spawner::Update()
 	{
 		timer.Reset();
 
-		spawnRate = 1 + mt() % timeRate ;
+		spawnRate = 1 + mt() % timeRate;
 
 		uint spawn = mt() % 100;
 
-		if (Level::dist <= 50 || Level::dist > 50)
+		if ((Level::dist <= 50 || Level::dist > 50) && spawnBoss < 1)
 		{
-			if (spawn < 33)
+			if (spawn < 40)
 				Level::scene->Add(new Enemy(WALKER), MOVING);
 
 			if (Level::dist >= 50)
 			{
-				createUpgrade++;
+				if (createUpgrade < 2)
+					createUpgrade++;
 
-				if (spawn > 32 && spawn < 67)
+				if (spawn > 30 && spawn < 67)
 					Level::scene->Add(new Enemy(FLYING), MOVING);
 
 				if (Level::dist >= 100)
 				{
-					if (spawn > 66)
+					if (spawn > 60)
 						Level::scene->Add(new Enemy(JUMPER), MOVING);
 				}
 			}
 		}
 
+		if (Level::dist >= 500 && spawnBoss < 2)
+			spawnBoss++;
+
 		if (createUpgrade == 1)
 			Level::scene->Add(new Upgrade(), MOVING);
 
+		if (spawnBoss == 1)
+		{
+			Level::scene->Add(new Boss(), MOVING);
+		}
+
 	}
 }
-
-void Spawner::Draw() {}

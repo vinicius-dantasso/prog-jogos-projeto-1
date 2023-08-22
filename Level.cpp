@@ -7,11 +7,12 @@ int Level::dist = 0;
 void Level::Init()
 {
 	scene = new Scene();
+	Level::dist = 0;
 
-	background = new Background();
+	Background* background = new Background();
 	scene->Add(background, STATIC);
 
-	player = new Player();
+	Player* player = new Player();
 	scene->Add(player, MOVING);
 
 	Floor* floor;
@@ -25,8 +26,8 @@ void Level::Init()
 		scene->Add(floor, STATIC);
 	}
 
-	spawn = new Spawner();
-	scene->Add(spawn, STATIC);
+	Spawner* spawner = new Spawner();
+	scene->Add(spawner, STATIC);
 
 	font = new Font("Resources/m5x7.png");
 	font->Spacing(85);
@@ -37,6 +38,7 @@ void Level::Init()
 void Level::Finalize()
 {
 	PlaySound(0, 0, 0);
+	delete font;
 	delete scene;
 }
 
@@ -49,8 +51,21 @@ void Level::Update()
 		dist++;
 	}
 
-	scene->Update();
-	scene->CollisionDetection();
+	if (Player::isDead)
+	{
+		Player::isDead = false;
+		Engine::Next<GameOver>();
+	}
+	else if (Boss::isDead)
+	{
+		Boss::isDead = false;
+		Engine::Next<WinScreen>();
+	}
+	else
+	{
+		scene->Update();
+		scene->CollisionDetection();
+	}
 }
 
 void Level::Draw()
@@ -63,4 +78,5 @@ void Level::Draw()
 	font->Draw(window->Width() - 75, 31, strDist, black, Layer::UPPER, 0.15f);
 
 	scene->Draw();
+	//scene->DrawBBox();
 }

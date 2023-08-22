@@ -7,7 +7,8 @@ enum JumperObjects
     PLAYER,
     FLOOR,
     UPGRADE,
-    ENEMY
+    ENEMY,
+    BOSS
 };
 
 #endif // !_FONTDEMO_H_
